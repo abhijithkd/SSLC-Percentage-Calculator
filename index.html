@@ -1,0 +1,381 @@
+
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSLC Percentage Calculator</title>
+    <link rel="icon" href="images/kdlogo.png" type="image/png">
+        <style>
+            body{
+              margin: 0;
+              padding: 0;
+              font-family: sans-serif;
+              background: url(images/back.jpg) no-repeat;
+              background-size: cover;
+                }            
+            /*Header*/
+            header{
+		    background-color:#1C2833;
+		    color:#F8F9F9;
+		    font-size:17px;
+		    grid-column: 1/7;
+            display: flex;
+		    justify-content: flex-start;
+		    align-items: center;
+            
+		    padding: 0 3.5%;}
+            .title{font-size: 30;
+                margin-left: 300px;}
+            /*header ends*/
+
+            /*Calculator*/
+            .sslcform {
+            margin-top:40px;
+            background-position:center;
+            background-size:cover;
+            font-family:sans-serif;
+             background-position: fixed;
+            width:800px;
+            background-color:rgb(0,0,0,0.6);
+            margin-top:-15px;
+           
+            color:#FFFFFF;
+            padding:-15px 0px 10px 0px;
+            text-align:center;
+            border-radius:15px 15px 0px 0px ;
+            }  
+    
+            main{
+            background-color:rgb(0,0,0,0.5);
+            background-position: fixed;
+            width:800px;
+            margin:auto;}
+            form{
+            padding:10px;
+        
+             } 
+        
+ 
+            .name{
+                    margin-left:25px;
+                     margin-top:-5px;
+                     margin-bottom:0px;
+                    color: white;
+                    font-size: 18px;
+                    font-weight: 700;
+                    margin-top: 10px;}
+  
+            .result{
+                margin-left:150px;
+                margin-top:40px;
+                margin-bottom:0px;
+                color: white;
+                font-size: 28px;
+                font-weight: 700;
+                }                   
+             #demo{color:rgb(17, 224, 110);}   
+            .option{
+            position:relative;
+            left:50px;
+            top:-37px;
+            line-height: 25px;
+            width:100px;
+            margin-right: 50px;;
+            height:40px;
+            margin-right: 130px;
+            border-radius: 6px;
+            
+            padding: 0 22px;
+            font-size: 16px;
+            color: #555; 
+            outline:none;
+            overflow:hidden;
+            }    
+            .option option{ font-size:20px; }
+            .first {display:inline-block;margin-right:20px;} 
+            .second {display:inline-block;margin-right:20px;} 
+            .third {display:inline-block;}
+            .button{
+             background-color:#3BAF9F;
+            display:in;
+            font-size: x-large;
+            margin: -20px 0px 0px 220px;
+            text-align:center;
+            border-radius:12px;
+            border:2px solid #366473;
+            padding:14px 110px;
+            outline:none;
+            color:white;
+            cursor:pointer;
+            transition:0.25px;
+            } 
+        .button:hover{
+                        background-color:#5390F5;
+            } 
+            .about{
+                background-color:black;
+                opacity:0.5;
+                color:white;
+                margin-bottom:0px;
+                font-size:15px;
+                width:65%;
+                margin-top:0px;
+                margin-left:150px;
+                border-radius:15px 15px 15px 15px ;
+            }
+            /*Footer*/
+            #footer{
+            background-color:#17202A;
+			color:white;
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+			margin:0px;
+            
+			padding:0px;
+			width:100%;
+			text-decoration:none;
+			font-style:bold;
+			grid-column: 1/13;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			}
+	        #footer a{text-decoration:none;}
+	        #name{
+                margin-left: 300px;
+                margin-right:350px;}	
+
+		    a:link,a:visited{color:white;}
+		    a:hover{color: magenta;}
+            /*Footer Ends*/
+            
+
+
+        </style>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script>
+            function calc(e)
+            {
+                
+                e.preventDefault();
+                var ap =Number(document.getElementById("ap").value);
+                //document.write(ap);
+                var a = Number(document.getElementById("a").value);
+                var bp =Number(document.getElementById("bp").value);
+                var b =Number(document.getElementById("b").value);
+                var cp =Number(document.getElementById("cp").value);
+                var c =Number(document.getElementById("c").value);
+                var dp =Number(document.getElementById("dp").value);
+                var d =Number(document.getElementById("d").value);
+                var e =Number(document.getElementById("e").value);
+                var sum=ap+a+bp+b+cp+c+dp+d+e;
+                //document.write(sum);
+                if(sum!=10)
+                {
+                    alert("Total number of grades must be '10' !!! ");
+                }
+                else
+                {
+                    gp=(ap*9)+(a*8)+(bp*7)+(b*6)+(cp*5)+(c*4)+(dp*3)+(d*2)+(e*1);
+                    p=((gp*100)/90);
+                    percentage=p.toFixed(2)
+                    alert("Your Percentage is "+percentage);
+                    document.getElementById("demo").innerHTML =percentage+" %";
+                    e.target.submit();
+                }
+
+            }
+            </script>
+    </head>
+
+    <body>
+        <header>
+            <div class="title">
+                
+            <h1>SSLC Percentage Calculator</h1>
+                
+            </div>
+        </header>
+        <main>
+            <div class="sslcform">
+                <h1>Select No.of Grades </h1>
+        </div>
+        <div class="main">
+            
+        <form name="sslc" method="post" onsubmit="calc(event)" >  
+        <div class="row">
+            <div class="first">
+            <h2 class="name">A+</h2>
+            <select class="option" id="ap">
+                            <option value="0" selected="selected">0</option>
+                            <option value="1">1</option>                           
+                            <option value="2">2</option>                          
+                            <option value="3">3</option>                           
+                            <option value="4">4</option>                           
+                            <option value="5">5</option> 
+                            <option value="6">6</option>
+                            <option value="7">7</option>                           
+                            <option value="8">8</option>                          
+                            <option value="9">9</option>                           
+                            <option value="10">10</option>                                                 
+            </select>
+            </div>
+
+            
+            <div class="second">
+                <h2 class="name">A</h2>
+                <select class="option" id="a">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1">1</option>                           
+                                <option value="2">2</option>                          
+                                <option value="3">3</option>                           
+                                <option value="4">4</option>                           
+                                <option value="5">5</option> 
+                                <option value="6">6</option>
+                                <option value="7">7</option>                           
+                                <option value="8">8</option>                          
+                                <option value="9">9</option>                           
+                                <option value="10">10</option>                                                 
+                </select>
+                </div>
+                
+            <div class="third">
+                <h2 class="name">B+</h2>
+                <select class="option" id="bp">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1">1</option>                           
+                                <option value="2">2</option>                          
+                                <option value="3">3</option>                           
+                                <option value="4">4</option>                           
+                                <option value="5">5</option> 
+                                <option value="6">6</option>
+                                <option value="7">7</option>                           
+                                <option value="8">8</option>                          
+                                <option value="9">9</option>                           
+                                <option value="10">10</option>                                                 
+                </select>
+                </div><br>
+                
+            <div class="first">
+                <h2 class="name">B</h2>
+                <select class="option" id="b">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1">1</option>                           
+                                <option value="2">2</option>                          
+                                <option value="3">3</option>                           
+                                <option value="4">4</option>                           
+                                <option value="5">5</option> 
+                                <option value="6">6</option>
+                                <option value="7">7</option>                           
+                                <option value="8">8</option>                          
+                                <option value="9">9</option>                           
+                                <option value="10">10</option>                                                 
+                </select>
+                </div>
+                <div class="second">
+                    <h2 class="name">C+</h2>
+                    <select class="option" id="cp">
+                                    <option value="0" selected="selected">0</option>
+                                    <option value="1">1</option>                           
+                                    <option value="2">2</option>                          
+                                    <option value="3">3</option>                           
+                                    <option value="4">4</option>                           
+                                    <option value="5">5</option> 
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>                           
+                                    <option value="8">8</option>                          
+                                    <option value="9">9</option>                           
+                                    <option value="10">10</option>                                                 
+                    </select>
+                    </div>
+                    
+                <div class="third">
+                    <h2 class="name">C</h2>
+                    <select class="option" id="c">
+                                    <option value="0" selected="selected">0</option>
+                                    <option value="1">1</option>                           
+                                    <option value="2">2</option>                          
+                                    <option value="3">3</option>                           
+                                    <option value="4">4</option>                           
+                                    <option value="5">5</option> 
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>                           
+                                    <option value="8">8</option>                          
+                                    <option value="9">9</option>                           
+                                    <option value="10">10</option>                                             
+                    </select>
+                    </div><br>
+                    <div class="first">
+                        <h2 class="name">D+</h2>
+                        <select class="option" id="dp">
+                                        <option value="0" selected="selected">0</option>
+                                        <option value="1">1</option>                           
+                                        <option value="2">2</option>                          
+                                        <option value="3">3</option>                           
+                                        <option value="4">4</option>                           
+                                        <option value="5">5</option> 
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>                           
+                                        <option value="8">8</option>                          
+                                        <option value="9">9</option>                           
+                                        <option value="10">10</option>                                             
+                        </select>
+                        </div>
+                        
+                    <div class="second">
+                        <h2 class="name">D</h2>
+                        <select class="option" id="d">
+                                        <option value="0" selected="selected">0</option>
+                                        <option value="1">1</option>                           
+                                        <option value="2">2</option>                          
+                                        <option value="3">3</option>                           
+                                        <option value="4">4</option>                           
+                                        <option value="5">5</option> 
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>                           
+                                        <option value="8">8</option>                          
+                                        <option value="9">9</option>                           
+                                        <option value="10">10</option>                                              
+                        </select>
+                        </div>
+                        <div class="third">
+                            <h2 class="name">E</h2>
+                            <select class="option" id="e">
+                                            <option value="0" selected="selected">0</option>
+                                            <option value="1">1</option>                           
+                                            <option value="2">2</option>                          
+                                            <option value="3">3</option>                           
+                                            <option value="4">4</option>                           
+                                            <option value="5">5</option> 
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>                           
+                                            <option value="8">8</option>                          
+                                            <option value="9">9</option>                           
+                                            <option value="10">10</option>                                                 
+                            </select>
+                            </div>
+                        </div> 
+                     <br>
+                                <input  type="submit" class="button"  value="Calculate" ></input>     
+                                
+                                <h1 class="result">Your Percentage : <span id="demo"></span></h1>    
+            
+             </div>  
+            </form>    
+            <div class="about">
+                  <blockquote>
+                  <h2>Note:</h2>
+                  <p>This percentage is based on your gradepoints. It may or may not change when the actual percentage is published based on the marks you got.</p>
+                  </blockquote>    
+            </div>    
+        </main>
+        <footer>
+            <div id="footer">
+		
+                <div id="name"><i class="fa fa-code fa-sm"></i>&nbsp;&nbsp;  Developed by : <a target="_blank"
+                        href="https://www.instagram.com/itz_ab_kd_17/">Abhijith&nbsp;K D</a>
+                </div>		
+        </footer>        
+    </body>
+</html>
